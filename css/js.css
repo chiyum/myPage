@@ -12,6 +12,10 @@ img {
   border: none;
 }
 
+body, html {
+  scroll-behavior: smooth;
+}
+
 .nav {
   position: absolute;
   left: -100%;
@@ -28,6 +32,7 @@ img {
 
 .nav p {
   position: relative;
+  width: 50px;
   left: 103%;
   font-size: 30px;
   font-weight: bold;
@@ -91,5 +96,134 @@ img {
   font-size: 20px;
   padding: 15px 28px;
   border-bottom: 1px solid #c3c3c3;
+}
+
+.hide {
+  display: none;
+}
+
+.bgmed {
+  background: rgba(51, 51, 51, 0.6);
+}
+
+.navComputer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background: url(../img/starfield-banner.jpg) black repeat-x;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.navComputer .navclick {
+  display: none;
+  padding: 5px;
+}
+
+.navComputer .navclick .Cone {
+  height: 3.2px;
+}
+
+.navComputer .navclick div {
+  margin: 10px;
+  height: 3px;
+  width: 40px;
+  background-color: white;
+}
+
+.navComputer img {
+  width: 300px;
+}
+
+.navComputer ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.navComputer ul li {
+  position: relative;
+}
+
+.navComputer ul li a {
+  display: block;
+  padding: 15px;
+  color: white;
+  text-decoration: none;
+  border-right: 2px solid gray;
+}
+
+.navComputer ul li .last {
+  border-right: 0;
+}
+
+.navComputer ul li:hover div {
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background-color: #00cc99;
+}
+
+.content {
+  height: 1900px;
+}
+
+.footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(black), to(#524d4d));
+  background-image: linear-gradient(to bottom, black, #524d4d);
+  background: url(../img/starfield-banner.jpg) repeat-x black;
+  background-blend-mode: screen;
+}
+
+.footer p {
+  padding: 10px 15px;
+  text-align: right;
+}
+
+.footer p a {
+  color: white;
+  font-size: 40px;
+  font-weight: bolder;
+  line-height: 30px;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+  text-decoration: none;
+}
+
+.footer p a:hover {
+  color: #00cc99;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.footer div {
+  padding: 5px 10px;
+  color: white;
+}
+
+@media (max-width: 720px) {
+  .navComputer .navclick {
+    display: block;
+  }
+  .navComputer ul {
+    display: none;
+  }
 }
 /*# sourceMappingURL=js.css.map */
