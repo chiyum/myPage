@@ -111,7 +111,6 @@ body, html {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 100%;
   background: url(../img/starfield-banner.jpg) black repeat-x;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
@@ -124,7 +123,6 @@ body, html {
 .navComputer .navclick {
   display: none;
   padding: 5px;
-  margin-right: 15px;
 }
 
 .navComputer .navclick .Cone {
@@ -149,7 +147,6 @@ body, html {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-right: 15px;
 }
 
 .navComputer ul li {
