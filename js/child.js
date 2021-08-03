@@ -29,3 +29,16 @@ navoff.onclick=function(){//選單收回
     navoff.classList.add("hide");
     nav.classList.remove("bgmed");
 }
+//以上選單
+
+let contact =document.querySelectorAll('.mainContact a');
+
+for (let i = 0; i < contact.length; i++) {
+    contact[i].addEventListener('click',contactNotify,false)
+}
+
+
+function contactNotify(e){
+    e.preventDefault()
+    alert('尚在建立中，請見諒')
+}
