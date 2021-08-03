@@ -135,11 +135,24 @@ body,html{//平穩滾動錨點
 }
 //content
 .content{
-    padding: 100px;
-    height:1500px;
+    padding: 70px;
     background: url(../img/star4.jpg);
     background-size: cover;
     background-attachment: fixed;
+    text-align: center;
+   .main{
+       background-color: gray;
+       height: 500px;
+       border-radius:  30px 30px 15px 15px;
+       div{
+        padding: 30px;
+        color: white;
+        background-color: #00cc99;
+        border-radius: 15px 15px 30% 30%;
+        font-size: 50px;
+    }
+   }
+    
 }
 
 
