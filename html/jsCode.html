@@ -75,13 +75,76 @@
                 <!-- <a href="#">this的用途</a> -->
                 <!-- 依照分頁標題命名 -->
             </div>
-            <div class="main">
+            <div class="main" id="noHeight">
                 <p class="time">Aug 3,2021</p>
-                <h1>JavaScript 總導覽頁面</h1>
+                <h1>JavaScript 常用代碼</h1>
                 <!-- 依分頁標題敘述 -->
-                <ul>
-                    <li><a href="./jsCode.html">個人常用JS代碼 ➤</a></li>
-                </ul>
+                <p id="pre">
+                    &lt---指定元素---&gt
+                    <br>
+                    document.querySelectorAll('.class / #id')
+                    //取得所有元素並陣列化
+                    <br>
+                    document.querySelector('.class / #id')
+                    //取得一個元素，若有多個只會抓第一個
+                    <br>
+                    document.getElementById('id')
+                    //指定Id
+                    <br>
+                </p>
+                <div id="pre">
+                    &lt---Array 陣列相關---&gt
+                    <br>
+                    Array.push(變數 / 數字 / '字串'/ {陣列})
+                    <br>    
+                    Array.splice(第幾筆開始,刪除幾筆)
+                    <br>
+                    Array.length//陣列數量總數
+                </div>
+                <div id="pre">
+                    &lt---Variable 變數---&gt
+                    <br>
+                    Variable.getAttribute('屬性')//取屬性值，例如a裡面的href
+                    <br>
+                    Variable.setAttribute('屬性','屬性值')//賦予屬性值
+                    <br>
+                    ('id','id名') / ('class','class名')等等
+                    <br>
+                    Variable.textContent =//改變內容文字
+                    <br>
+                    Variable.innerHTNL =//覆蓋原本並加入文字or標籤
+                    <br>
+                    Variable.appendChild(Variable)//上傳子節點
+                    <br>
+                    會與let Variable = document.createElement('標籤')//新增標籤配合
+                    <br>先新增標籤變數，再上傳
+                </div>
+                <div id="pre">
+                    &lt---Event相關---&gt
+                    <br>
+                    e.target.dataset.自訂ID 取data值
+                    <br>
+                    e.target.nodeName 取元素(標籤)名，都會是大寫
+                    <br>
+                    e.target.className 取class名
+                    <br>
+                    e.target.value 取值
+                    <br>
+                    e.stopPropagation() 阻止冒泡事件，點擊區塊內只執行一種event
+                    <br>
+                    e.preventDefault() 取消元素默認事件，例如a連結。
+                </div>
+                <div id="pre">
+                    &lt---其他---&gt
+                    <br>
+                    parseInt(欲轉換內容)字串轉數字
+                    <br>
+                    JSON.stringify(欲轉換內容)轉字串
+                    <br>
+                    JSON.parse(欲轉換內容)轉陣列
+                    <br>
+                    Object.freeze//凍結變數內容
+                </div>
             </div>
             <!-- 廣告 -->
             <div class="ad">
