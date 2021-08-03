@@ -228,7 +228,7 @@ body, html {
   text-align: left;
   margin-top: -1px;
   padding: 20px 50px;
-  height: 750px;
+  height: 850px;
   background-color: white;
   border-top: 5px solid #5c7fb9;
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
@@ -257,6 +257,10 @@ body, html {
   color: #6E6EFF;
 }
 
+.content .main ul {
+  margin-top: 40px;
+}
+
 .content .main ul li {
   margin-top: 10px;
 }
@@ -282,6 +286,25 @@ body, html {
 
 .content .ad a img {
   width: 300px;
+}
+
+.content .ad p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.content .ad p img {
+  margin-top: 30px;
+  width: 300px;
+}
+
+.content .ad p .cat {
+  margin-top: 60px;
 }
 
 .content .mainContact {
