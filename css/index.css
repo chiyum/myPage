@@ -17,7 +17,7 @@ img {
   margin: 0 auto;
   color: #333333;
   font-family: Arial, Helvetica, sans-serif;
-  background: url(../img/star2.jpg);
+  background: url(../img/star10.jpg);
   background-size: cover;
   overflow: hidden;
 }
@@ -140,14 +140,17 @@ img {
   padding: 10px 100px;
   color: white;
   text-decoration: none;
+  border: 2px solid #0f0;
   border-radius: 5px;
-  background-color: rgba(72, 56, 146, 0.9);
+  background-color: black;
   -webkit-animation-name: kackgd;
           animation-name: kackgd;
   -webkit-animation-duration: 3s;
           animation-duration: 3s;
   -webkit-animation-iteration-count: infinite;
           animation-iteration-count: infinite;
+  -webkit-transition: all 1s;
+  transition: all 1s;
 }
 
 @-webkit-keyframes kackgd {
@@ -188,6 +191,16 @@ img {
 
 .main a:visited {
   color: white;
+}
+
+.main a:hover {
+  -webkit-box-shadow: 0 0 10px #0f0, 0 0 20px #0f0, 0 0 40px #0f0, 0 0 80px #0f0;
+          box-shadow: 0 0 10px #0f0, 0 0 20px #0f0, 0 0 40px #0f0, 0 0 80px #0f0;
+  background-color: #0f0;
+  color: black;
+  font-weight: bolder;
+  -webkit-animation: none;
+          animation: none;
 }
 
 .wrapbg {
