@@ -210,6 +210,11 @@ body,html{//平穩滾動錨點
                 }
             }
         }
+        div{
+            word-wrap: break-word;//pre自適應
+            white-space: pre-wrap;
+            line-height: 1.7;
+        }
     }   
     .ad{
         display: flex;

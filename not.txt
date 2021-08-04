@@ -194,24 +194,59 @@ for(let i=0;i<10;i++){執行程式碼}
 
 	//css
 
-	<head>
-    <meta charset="UTF-8">
-    <title>HTML、CSS教學</title>
+	<head&gt
+    <meta charset="UTF-8"&gt
+    <title&gtHTML、CSS教學</title&gt
 
-    <link rel="shortcut icon" href="favicon.ico">
-    <meta name='description' content='網站描述文字' />
+    <link rel="shortcut icon" href="favicon.ico"&gt
+    <meta name='description' content='網站描述文字' /&gt
 
 
-    <meta property="og:title" content="FB的標題" />
-    <meta property="og:description" content="FB的描述">
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="FB上的網址" />
-    <meta property="og:image" content="FB的圖片" />
+    <meta property="og:title" content="FB的標題" /&gt
+    <meta property="og:description" content="FB的描述"&gt
+    <meta property="og:type" content="website" /&gt
+    <meta property="og:url" content="FB上的網址" /&gt
+    <meta property="og:image" content="FB的圖片" /&gt
 
-    <link href="圖片路徑" rel="apple-touch-icon" />
+    <link href="圖片路徑" rel="apple-touch-icon" /&gt
 
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" /&gt
 
-    <link rel="stylesheet" href="CSS檔案路徑">
-    <script type="text/javascript" src="JS檔案路徑"></script>
-</head>
+    <link rel="stylesheet" href="CSS檔案路徑"&gt
+    <script type="text/javascript" src="JS檔案路徑"&gt</script&gt
+</head&gt
+
+
+
+&lt!DOCTYPE html&gt
+&lthtml lang="en"&gt
+&lthead&gt
+    &ltmeta charset="UTF-8"&gt
+    &ltmeta http-equiv="X-UA-Compatible" content="IE=edge"&gt
+    &ltmeta name="viewport" content="width=device-width, initial-scale=1.0"&gt
+    &lttitle&gtDocument&lt/title&gt
+&lt/head&gt
+&ltbody&gt
+    
+&lt/body&gt
+&lt/html&gt
+
+
+
+    &ltlink rel="shortcut icon" href="favicon.ico"&gt //標題圖示
+    &ltmeta name='description' content='網站描述文字' /&gt //於搜尋引擎看到的網站介紹
+
+
+    &ltmeta property="og:title" content="FB/line等軟體上的標題"&gt
+    &ltmeta property="og:description" content="FB/line等軟體上的描述"&gt
+    &ltmeta property="og:type" content="website"&gt //宣告這是網頁
+    &ltmeta property="og:url" content="FB/line等軟體上的網址"&gt
+   &ltmeta property="og:image" content="FB/line等軟體上的圖片"&gt
+
+    &ltlink href="圖片路徑" rel="apple-touch-icon" /&gt 放在手機捷徑的圖示
+
+
+    &ltlink rel="stylesheet" href="CSS檔案路徑"&gt //導入外部CSS樣式
+    &ltscript type="text/javascript" src="JS檔案路徑"&gt&lt/script&gt 導入外部Javascript
+
+	以上參考至六角學院
