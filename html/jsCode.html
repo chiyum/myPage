@@ -76,7 +76,7 @@
                 <!-- 依照分頁標題命名 -->
             </div>
             <div class="main" id="noHeight">
-                <p class="time">Aug 3,2021</p>
+                <p class="time">Aug 4,2021</p>
                 <h1>JavaScript 常用代碼</h1>
                 <!-- 依分頁標題敘述 -->
                 <p id="pre">
@@ -104,13 +104,19 @@
                 <div id="pre">
                     &lt---Variable 變數---&gt
                     <br>
-                    Variable.getAttribute('屬性')//取屬性值，例如a裡面的href
+                    Variable.getAttribute('屬性')//取屬性值。例如a裡面的href
                     <br>
                     Variable.setAttribute('屬性','屬性值')//賦予屬性值
+                    <br>
+                    Variable.classlist.add('class')//新增class
+                    <br>
+                    variable.classlist.remove('class')//移除class
                     <br>
                     ('id','id名') / ('class','class名')等等
                     <br>
                     Variable.textContent =//改變內容文字
+                    <br>
+                    variable.write(' 這裡寫你要呈現的文字 ')
                     <br>
                     Variable.innerHTNL =//覆蓋原本並加入文字or標籤
                     <br>
@@ -122,20 +128,68 @@
                 <div id="pre">
                     &lt---Event相關---&gt
                     <br>
-                    e.target.dataset.自訂ID 取data值
+                    e.target.dataset.自訂ID //取data值
                     <br>
-                    e.target.nodeName 取元素(標籤)名，都會是大寫
+                    e.target.nodeName 取元素(標籤)名。都會是大寫
                     <br>
                     e.target.className 取class名
                     <br>
+                    e.target.textContent 取點擊內容文字
+                    <br>
                     e.target.value 取值
                     <br>
-                    e.stopPropagation() 阻止冒泡事件，點擊區塊內只執行一種event
+                    e.stopPropagation() 阻止冒泡事件。點擊區塊內只執行一種event
                     <br>
-                    e.preventDefault() 取消元素默認事件，例如a連結。
+                    e.preventDefault() 取消元素默認事件。例如a連結
+                    <br>
+                    監聽事件種類:click點擊, change表單, keydown鍵盤,
+                    <br>
+                    blur離開焦點, focus所在焦點, mousemove鼠標滑入觸發(類CSS的hover)
+                    <br>
+                    variable.addEventListener('事件',function(){}/function,false/ture)//監聽事件設定
+                </div>
+                <div id="pre">
+                    &lt---BOM---&gt
+                    <br>
+                    window.history.forward.forward()//到有紀錄的下一頁
+                    <br>
+                    window.history.back()//回到有紀錄的上頁
+                    <br>
+                    window.print()//列印
+                    <br>
+                    window.href()//前往網址
+                    <br>
+                    window.open('網址')//開新分頁並前往網址頁面(空值的話等於開新分頁)
+                    <br>
+                    window.innerHeight//網頁高度
+                    <br>
+                    window.innerWidth//網頁寬度
+                    <br>
+                    window.outerHeight//整個瀏覽器高度
+                    <br>
+                    window.outerWidth//整個瀏覽器寬度
+                </div>
+                <div id="pre">
+                    &lt---AJAX---&gt
+                    <br>
+                    let xhr =new XMLHttpRequest();//建立連接請求
+                    <br>
+                    xhr.open('get/post','網址',ture/false)//連線對象及作用
+                    <br>
+                    xhr.setRequestHeader('Content-type','application/x-www-form-urlencoded')//設定傳送格式
+                    <br>
+                    // 發送表單類型的資料：('Content-Type','application/x-www-form-urlencoded')
+                    <br>
+                    // 發送 JSON 類型的資料：('Content-Type','application/json')
+                    <br>
+                    xhr.send(內容)//上傳內容
+                    <br>
+                    xhr.onload=function(){}//非同步時讀取資料用
                 </div>
                 <div id="pre">
                     &lt---其他---&gt
+                    <br>
+                    console.log(欲顯示內容)在console中顯示
                     <br>
                     parseInt(欲轉換內容)字串轉數字
                     <br>
@@ -144,6 +198,17 @@
                     JSON.parse(欲轉換內容)轉陣列
                     <br>
                     Object.freeze//凍結變數內容
+                    <br>
+                    isNaN(value)//如果是NaN就回傳ture。空值亦可使用，可用在沒輸入任何東西的情況下
+                    <br>
+                    localStorage.getItem("localName")//取出本地端localstorage
+                    <br>
+                    localStorage.setItem("自定義localName",輸入的字串)//設定or加入localstorage
+                    <br>
+                    let variable =new Date()//取得目前時間
+                    <br>
+                    getDay()取得星期, getFullYear()取得西元年, getMonth()取得月份,
+                    getDate()取得天數, getHours()取得小時
                 </div>
             </div>
             <!-- 廣告 -->
