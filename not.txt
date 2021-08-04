@@ -192,6 +192,15 @@ for(let i=0;i<10;i++){執行程式碼}
 
 	! not
 
+
+pre 自適應寬度
+word-wrap: break-word;
+white-space: pre-wrap;
+
+
+
+
+
 	//css
 
 	<head&gt

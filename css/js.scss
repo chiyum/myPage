@@ -323,13 +323,30 @@ body,html{//平穩滾動錨點
 }
 
 // id
-#pre{
+#pre{//自行換行P段落使用
     margin-top: 15px;
     line-height: 1.7;
     text-align: left;
 }
-#noHeight{
+#noHeight{ //當高度不用固定時使用
     height: auto;
+}
+
+#block{ //不同區塊分類用
+    width: 55%;
+    color: black;
+    border-left: 4px solid #5c7fb9;
+    background-color: #bfbff1;
+}
+
+#tag{
+    color: rgb(50, 4, 255);
+    font-weight: bolder;
+    // rgb(28, 96, 243)
+}
+#title{
+    font-size: 20px;
+    font-weight: bolder;
 }
 //rwd
 
@@ -349,7 +366,13 @@ body,html{//平穩滾動錨點
         right: 30px;
     }
 }
+@media (max-width:1190px){
+    
+    #block{
+        width: 50%;
+    }
 
+}
 
 @media (max-width:1080px){
     .content{
@@ -361,18 +384,12 @@ body,html{//平穩滾動錨點
             top: 220px;
         }
     }
-}
-
-@media (max-width:820px){
-    .content{
-        .mainContact{
-            display: none;
-        }
+    #block{
+        width: 70%;
     }
 }
 
-
-@media (max-width:720px) {
+@media (max-width:820px){
     .navComputer{
 
         .navclick{
@@ -384,10 +401,25 @@ body,html{//平穩滾動錨點
         }
     }
     .content{
+        .mainContact{
+            display: none;
+        }
+    }
+    #block{
+        width: 100%;
+    }
+}
+
+
+@media (max-width:720px) {
+    .content{
         .main{
             padding: 20px;
         }
     }
+    // #block{
+    //     width: 100%;
+    // }
 }
 
 @media (max-width:580px){
