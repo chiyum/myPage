@@ -258,7 +258,7 @@ body, html {
 }
 
 .content .main ul {
-  margin-top: 40px;
+  margin-top: 35px;
 }
 
 .content .main ul li {
@@ -446,6 +446,11 @@ body, html {
 #str {
   color: #c3723b;
   font-weight: bolder;
+}
+
+#titleh2 {
+  font-size: 18px;
+  font-weight: 600;
 }
 
 #title {
