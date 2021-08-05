@@ -79,19 +79,77 @@
         </div>
         <div class="content">
             <div class="title">
-                <a href="#" class="titleFirst">JavaScript</a>
+                <a href="./js.html" class="titleFirst">JavaScript</a>
                 <div class="t04"></div>
                 <!-- <a href="#">this的用途</a> -->
                 <!-- 依照分頁標題命名 -->
             </div>
-            <div class="main">
-                <p class="time">Aug 4,2021</p>
-                <h1>JavaScript 總導覽頁面</h1>
+            <div class="main" id="noHeight" >
+                <!--id="noHeight"//固定高度解除-->
+                <p class="time">Aug 5,2021</p>
+                <h1>this 用途</h1>
                 <!-- 依分頁標題敘述 -->
-                <ul>
-                    <li><a href="./jsCode.html">個人常用JS代碼 ➤</a></li>
-                    <li><a href="./jsThis.html">this是誰?用途是? ➤</a></li>
-                </ul>
+               <div>
+在JavaScript時常使用到this，this顧名思義指的是"這個"。
+在全域內，指的這個就是這整個全域:
+<p id="block">
+    <span id="tag">var</span> <span id="var">person</span> =<span id="str">'小新'</span>
+    console.log(this.<span id="var">person</span>)//小新
+
+</p>
+而在物件或陣列內，自然也就是指這個物件或是陣列了:
+<p id="block">
+    <span id="tag">let</span> <span id="var">crowd</span> ={
+        <span id="var">person:</span><span id="str">'小豬'</span>,
+        <span id="var">callperson:</span><span id="fun">function()</span>{
+            console.log(this.<span id="var">person</span>)
+        },
+    }
+    <span id="fun">callperson()</span>//小豬
+</p>
+但是呢，this的宣告位置並不重要，重要的是調用的方法。
+雖然一開始是以宣告的區域去運行，例如物件內宣告。
+不過若是我將在物件內宣告的this調用出來，那麼結果將會是這樣:
+<p id="block">
+    <span id="tag">var</span> <span id="var">person</span> =<span id="str">'小新'</span>
+    <span id="tag">let</span> <span id="var">crowd</span> ={
+        <span id="var">person:</span><span id="str">'小豬'</span>,
+        <span id="var">callperson:</span><span id="fun">function()</span>{
+            console.log(this.<span id="var">person</span>)
+        },
+    }
+    <span id="tag">var</span> <span id="var">callpersonNew</span> =<span id="var"> crowd.callperson</span>
+    <span id="fun">callpersonNew()</span>//小新
+    //結果是小新
+    <span id="tag">
+    原因:
+    此時調用出來的crowd.callperson
+    已經轉變成在全域內的function。
+    想當然了，在JS語法作用域下的，
+    執行的結果自然是身為全域變數的小新了。
+    而語法作用域會在其他章提到，這邊就不多解釋了。
+    </span>
+</p>
+
+<span id="title">DOM及addEventListener的搭配下this的指向</span>
+在DOM及addEventListener搭配時，此時的this則是指觸發的DOM本身:
+<p id="block">
+    <span id="tag">var</span> <span id="var">variable</span> = document.getElementsByTagName('div');
+    <span id="fun">for</span> (var i = 0; i &lt variable.length; i++) {
+        <span id="fun">variable[i].addEventListener('click', checkDOM, false);</span>
+        //因監聽只能一次監聽一個變數
+        //使用迴圈緣故便是將符合條件的變數都執行一次
+        //ex.當指定的DOM數量是多數時將會自行陣列化
+      }
+      <span id="fun">function checkDOM()</span> {
+        console.log(this); // 點擊指向範圍內符合條件的DOM(標籤名稱是div的)
+        this.style.background ='#dab903'
+      } 
+      <span id="tag">可以嘗試複製貼到Console並點擊看看(不要複製到我)</span>
+
+</p>
+
+               </div>
             </div>
             <!-- 廣告 -->
             <div class="ad">
@@ -129,6 +187,25 @@
     </div>
     <!-- js -->
     <script src="../js/child.js"></script>
+    <script>
+
+        // var person ='小新'//因為var的話是全域變數，若let或const則就不會在全域變數內了
+        // function callperson(){
+        //     console.log(this.person)
+        // }
+        // callperson()//小新
+
+
+        // var person ='小新'
+        // let crowd ={
+        //     person:'小豬',
+        //     callperson:function(){
+        //         console.log(this.person)
+        //     },
+        // }
+        // crowd.callperson()//小豬
+        // callperson()//小新
+    </script>
 </body>
 </html>
 

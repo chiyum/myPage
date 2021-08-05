@@ -433,6 +433,21 @@ body, html {
   font-weight: bolder;
 }
 
+#fun {
+  color: #dab903;
+  font-weight: bolder;
+}
+
+#var {
+  color: #568ca1;
+  font-weight: bolder;
+}
+
+#str {
+  color: #c3723b;
+  font-weight: bolder;
+}
+
 #title {
   font-size: 20px;
   font-weight: bolder;
