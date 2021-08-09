@@ -19,14 +19,12 @@ window.onresize =function(){
 
 navButton.onclick=function(){ //選單展開
     nav.style.left =0;
-    navoff.classList.remove("hide");
     setTimeout("nav.classList.add('bgmed')",350);
     
 };
 
 navoff.onclick=function(){//選單收回
     nav.style.left =-100+"%";
-    navoff.classList.add("hide");
     nav.classList.remove("bgmed");
 }
 //以上選單

@@ -213,7 +213,7 @@ img {
 }
 
 .hide {
-  display: none;
+  display: block;
 }
 
 @media (max-width: 920px) {

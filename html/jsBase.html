@@ -86,70 +86,79 @@
             </div>
             <div class="main" id="noHeight" >
                 <!--id="noHeight"//固定高度解除-->
-                <p class="time">Aug 5,2021</p>
-                <h1>this 用途</h1>
+                <p class="time">Aug 9,2021</p>
+                <h1>JavaScript淺談陳述式及變數</h1>
                 <!-- 依分頁標題敘述 -->
                <div>
-在JavaScript時常使用到this，this顧名思義指的是"這個"。
-在全域內，指的這個就是這整個全域:
+此次介紹最基礎的幾個陳述式及淺談變數。
+首先變數的概念是將值賦予在變數上，在以變數去執行各項操作。
+<img src="../img/variable.png" alt="圖解">                   
+像是以上這種概念，將3這個值塞到變數這個盒子內。
+此後變數就是代表3。實際操作如下:
 <p id="block">
-    <span id="tag">var</span> <span id="var">person</span> =<span id="str">'小新'</span>
-    console.log(this.<span id="var">person</span>)//小新
-
-</p>
-而在物件或陣列內，自然也就是指這個物件或是陣列了:
-<p id="block">
-    <span id="tag">let</span> <span id="var">crowd</span> ={
-        <span id="var">person:</span><span id="str">'小豬'</span>,
-        <span id="var">callperson:</span><span id="fun">function()</span>{
-            console.log(this.<span id="var">person</span>)
-        },
-    }
-    <span id="fun">callperson()</span>//小豬
+    var a = 3;
+    b = a + 5;
+    console.log(b);//此時b就等於5。(3 + 5 =8
     
 </p>
-但是呢，this的宣告位置並不重要，重要的是調用的方法。
-雖然一開始是以宣告的區域去運行，例如物件內宣告。
-不過若是我將在物件內宣告的this調用出來，那麼結果將會是這樣:
+這項操作被稱為<span id="tag">宣告</span>變數在JavaScript是不可或缺的存在，基本的操作都是圍繞著變數
+例如.
+var button = document.querySelector('.nav');
+//以上這段程式碼是擷取網頁中class名稱為nav的標籤
+
+button.textContent ='安安你好';
+//button是剛才我宣告的標籤名稱，而textContent則是修改文字的代碼。
+
+變數其中一個存在的點就是為了節省每一次要指定元素都得打一大段代碼，省略了這個麻煩。
+
+<span id="title">Function函式:</span>
+函式是甚麼?用處又是?
+以生活來講解的話，函式好比是一個任務。
+今天假設我是服務生。當客人走入餐廳，正常狀態下都是先招呼客人對吧?
+這個招呼的動作就是老闆給服務生的任務，而function函式就是一個空的任務，由開發者來給予。
+例如:
 <p id="block">
-    <span id="tag">var</span> <span id="var">person</span> =<span id="str">'小新'</span>
-    <span id="tag">let</span> <span id="var">crowd</span> ={
-        <span id="var">person:</span><span id="str">'小豬'</span>,
-        <span id="var">callperson:</span><span id="fun">function()</span>{
-            console.log(this.<span id="var">person</span>)
-        },
+    function sayWelcome(){
+
+        say.歡迎光臨
+
     }
-    <span id="tag">var</span> <span id="var">callpersonNew</span> =<span id="var"> crowd.callperson</span>
-    <span id="fun">callpersonNew()</span>//小新
-    //結果是小新
-    <span id="tag">
-    原因:
-    此時調用出來的crowd.callperson
-    已經轉變成在全域內的function。
-    想當然了，在JS語法作用域下的，
-    執行的結果自然是身為全域變數的小新了。
-    而語法作用域會在其他章提到，這邊就不多解釋了。
-    </span>
+
+    看到客人了
+    sayWelcome()//執行任務
 </p>
+大概是上面這個概念。假設今天你是老闆，所以你賦予服務生這個任務，當看到客人的時候，
+就喊歡迎光臨。
+解釋一下上面的代碼:
+function 這就類似變數的宣告，只是這次不再是盒子，而是任務。
+sayWelcome() 則是這個任務的名稱。
+{}括號內就是這個任務要執行的內容。
+sayWelcome()就是執行任務
 
-<span id="title">DOM及addEventListener的搭配下this的指向</span>
-在DOM及addEventListener搭配時，此時的this則是指觸發的DOM本身:
-<p id="block">
-    <span id="tag">var</span> <span id="var">variable</span> = document.getElementsByTagName('div');
-    <span id="fun">for</span> (var i = 0; i &lt variable.length; i++) {
-        <span id="fun">variable[i].addEventListener('click', checkDOM, false);</span>
-        //因監聽只能一次監聽一個變數
-        //使用迴圈緣故便是將符合條件的變數都執行一次
-        //ex.當指定的DOM數量是多數時將會自行陣列化
-      }
-      <span id="fun">function checkDOM()</span> {
-        console.log(this); // 點擊指向範圍內符合條件的DOM(標籤名稱是div的)
-        this.style.background ='#dab903'
-      } 
-      <span id="tag">可以嘗試複製貼到Console並點擊看看(不要複製到我)</span>
+當然這個並不是真正的代碼，看到客人這個動作也得寫個代碼才能讓，以上只是解釋概念。
+詳細一點的代碼會在之後說明。
+EX.另外function還有個特性就是當執行以後才會把代碼給呼叫出來，執行完成後並刪除。
+這個目的主要是為了節省占用的記憶體。
 
-</p>
-
+<span id="tag">以下簡單描寫型態，之後還會再解釋，未完待續。</span>
+<span id="title">if判斷式</span>
+型態:
+if(滿足條件){
+    執行內容
+}
+<span id="tag">EX.for包if，在if{}內只執行滿足if條件的代碼</span>
+<span id="title">switch</span>
+型態:
+switch(條件){
+    case '滿足條件':
+    執行內容
+    breack;
+}
+<span id="title">for迴圈</span>
+型態:
+for(var i = 0;i&lt次數:i++){
+    執行內容
+}
                </div>
             </div>
             <!-- 廣告 -->
