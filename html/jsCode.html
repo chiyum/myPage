@@ -100,7 +100,9 @@
                     document.getElementById('id')
                     //指定Id
                     <br>
-                    document.getElementsByTagName("標籤名稱")
+                    document.getElementsByTagName('標籤名稱')//對應標籤 如h1等
+                    <br>
+                    document.getElementsByClassName('class名稱')//對應class名稱
                 </p>
                 <p id="pre">
                     &lt---Array 陣列相關---&gt
@@ -118,11 +120,16 @@
                     <br>
                     Variable.setAttribute('屬性','屬性值')//賦予屬性值
                     <br>
+                    //('id','id名') / ('class','class名')等等
+                    <br>
                     Variable.classlist.add('class')//新增class
                     <br>
                     variable.classlist.remove('class')//移除class
                     <br>
-                    ('id','id名') / ('class','class名')等等
+                    document.classList.toggle('class名稱')//當元素有這個class的話移除，
+                    若沒有則新增。
+                    <br>
+                    大概可以說是add及remove簡化版
                     <br>
                     Variable.textContent =//改變內容文字
                     <br>
