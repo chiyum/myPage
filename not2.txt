@@ -298,3 +298,20 @@ ex.但要注意，在||及&&邏輯運算子中是等於寬鬆判斷的
 ex.字串與數字做相加，會被轉為字串
 
 BigInt()使用此包住數字或是在數字後加個n可以更精準的表達數字
+
+物件實字 Object Literals:
+透過以下方法輸入物件及屬性稱為物件實字
+
+let store = {  //物件實字
+
+    commodity:value,
+    customer:value,
+
+}
+
+
+物件建構式:
+
+let newStore = new Object(store)
+
+若是插入物件，就變成物件包裹物件，插入甚麼就變成什麼樣的包裹物件。

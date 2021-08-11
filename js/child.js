@@ -40,3 +40,27 @@ function contactNotify(e){
     e.preventDefault()
     alert('尚在建立中，請見諒')
 }
+
+
+// 滾動後廣告
+let ad = document.querySelector('.ad')
+let footerId =document.getElementById('footerId')
+let main =document.querySelector('.main')
+//qureyselector其實可以使用.offsettop，只是無法跳出emmet
+function adscroll(){
+    if(main.offsetHeight < 766){return}
+    if(window.scrollY >= 148 && window.scrollY < footerId.offsetTop - 700){
+        ad.classList.add('fixed')
+        ad.classList.remove('absolute')
+    }
+    else if(window.scrollY >= footerId.offsetTop - 700){
+        ad.classList.add('absolute')
+    }else{
+        ad.classList.remove('fixed')
+        ad.classList.remove('absolute')
+    }
+}
+
+window.addEventListener('scroll',adscroll,false)
+
+
