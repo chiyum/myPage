@@ -48,7 +48,7 @@ let footerId =document.getElementById('footerId')
 let main =document.querySelector('.main')
 //qureyselector其實可以使用.offsettop，只是無法跳出emmet
 function adscroll(){
-    if(main.offsetHeight < 766){return}
+    if(main.offsetHeight < 830){return}
     if(window.scrollY >= 148 && window.scrollY < footerId.offsetTop - 700){
         ad.classList.add('fixed')
         ad.classList.remove('absolute')

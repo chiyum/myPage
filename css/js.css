@@ -479,6 +479,10 @@ body, html {
   font-weight: bolder;
 }
 
+#imgHundred {
+  width: calc(450px);
+}
+
 @media (max-width: 1296px) {
   .content .ad {
     right: 30px;
@@ -551,6 +555,9 @@ body, html {
   }
   .mainContact {
     display: none;
+  }
+  #imgHundred {
+    width: calc(100% - 5%);
   }
 }
 /*# sourceMappingURL=js.css.map */

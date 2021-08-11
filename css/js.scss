@@ -385,6 +385,9 @@ body,html{//平穩滾動錨點
     font-size: 20px;
     font-weight: bolder;
 }
+#imgHundred{
+    width: calc(450px);
+}
 //rwd
 
 @media (max-width:1296px) {
@@ -476,5 +479,8 @@ body,html{//平穩滾動錨點
     }
     .mainContact{
         display: none;
+    }
+    #imgHundred{
+        width: calc(100% - 5%);
     }
 }
