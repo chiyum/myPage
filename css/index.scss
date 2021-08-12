@@ -173,7 +173,14 @@ img{vertical-align: top;border: none;}
 .hide{
     display: block;
 }
+@media (min-width:820px){
 
+    .wrap{
+        // background: url(../img/star10Big.jpg);
+        background-size: contain;
+    }
+
+}
 @media (max-width:920px) {
  
     .wrap{

@@ -216,6 +216,12 @@ img {
   display: block;
 }
 
+@media (min-width: 820px) {
+  .wrap {
+    background-size: contain;
+  }
+}
+
 @media (max-width: 920px) {
   .wrap {
     width: auto;
