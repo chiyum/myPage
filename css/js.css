@@ -286,8 +286,8 @@ body, html {
 
 .content .ad div {
   margin-right: 50px;
-  width: 1px;
-  height: 720px;
+  width: 0.7px;
+  height: 80vh;
   background-color: #a3a1a1;
 }
 
