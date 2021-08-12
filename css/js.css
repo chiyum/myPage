@@ -18,7 +18,6 @@ body, html {
 }
 
 .wrap {
-  width: 1295px;
   margin: 0 auto;
 }
 
@@ -281,7 +280,7 @@ body, html {
   display: -ms-flexbox;
   display: flex;
   position: absolute;
-  right: 130px;
+  right: 60px;
   top: 150px;
 }
 
@@ -418,18 +417,24 @@ body, html {
 .icon {
   text-align: center;
   position: fixed;
-  right: 130px;
-  bottom: 80px;
+  right: 420px;
+  bottom: 30px;
   width: 30px;
   height: 30px;
   background-color: rgba(51, 51, 51, 0.9);
   border-radius: 50%;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
 }
 
 .icon img {
   position: relative;
   top: 2px;
   width: 16px;
+}
+
+.icon.active {
+  bottom: 95px;
 }
 
 #pre {
@@ -494,7 +499,7 @@ body, html {
     width: auto;
   }
   .icon {
-    right: 30px;
+    right: 380px;
   }
 }
 
@@ -511,6 +516,9 @@ body, html {
   .content .mainContact {
     right: 100px;
     top: 220px;
+  }
+  .icon {
+    right: 30px;
   }
   #block {
     width: 70%;

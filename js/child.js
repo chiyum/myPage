@@ -46,16 +46,20 @@ function contactNotify(e){
 let ad = document.querySelector('.ad')
 let footerId =document.getElementById('footerId')
 let main =document.querySelector('.main')
+let icon = document.querySelector('.icon')
 //qureyselector其實可以使用.offsettop，只是無法跳出emmet
 function adscroll(){
     if(main.offsetHeight < 830){return}
     if(window.scrollY >= 148 && window.scrollY < footerId.offsetTop - 700){
         ad.classList.add('fixed')
         ad.classList.remove('absolute')
+        icon.classList.remove('active')
     }
     else if(window.scrollY >= footerId.offsetTop - 700){
         ad.classList.add('absolute')
+        icon.classList.add('active')
     }else{
+        icon.classList.remove('active')
         ad.classList.remove('fixed')
         ad.classList.remove('absolute')
     }

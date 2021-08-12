@@ -9,7 +9,7 @@ body,html{//平穩滾動錨點
 }
 
 .wrap{
-    width: 1295px;
+    // width: 1295px;
     margin: 0 auto;
     
 }
@@ -221,7 +221,7 @@ body,html{//平穩滾動錨點
     .ad{
         display: flex;
         position: absolute;
-        right: 130px;
+        right: 60px;
         top: 150px;
         div{
             margin-right: 50px;
@@ -326,19 +326,22 @@ body,html{//平穩滾動錨點
 .icon{
     text-align: center;
     position: fixed;
-    right: 130px;
-    bottom: 80px;
+    right: 420px;
+    bottom: 30px;
     width: 30px;
     height: 30px;
     background-color: rgba(51, 51,51, 0.9);
     border-radius: 50%;
+    transition: all 0.5s;
     img{
         position: relative;
         top: 2px;
         width: 16px;
     }
 }
-
+.icon.active{
+    bottom: 95px;
+}
 // id
 #pre{//自行換行P段落使用
     margin-top: 15px;
@@ -403,9 +406,10 @@ body,html{//平穩滾動錨點
         width: auto;
     }
     .icon{
-        right: 30px;
+        right: 380px;
     }
 }
+
 @media (max-width:1190px){
     
     #block{
@@ -423,6 +427,9 @@ body,html{//平穩滾動錨點
             right: 100px;
             top: 220px;
         }
+    }
+    .icon{
+        right: 30px;
     }
     #block{
         width: 70%;
