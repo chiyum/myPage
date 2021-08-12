@@ -333,6 +333,7 @@ body,html{//平穩滾動錨點
     background-color: rgba(51, 51,51, 0.9);
     border-radius: 50%;
     transition: all 0.5s;
+    z-index: 2;
     img{
         position: relative;
         top: 2px;
