@@ -208,6 +208,19 @@ img {
   background-blend-mode: multiply;
 }
 
+.planet {
+  position: fixed !important;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  z-index: 100;
+}
+
+.planet.active {
+  display: none;
+}
+
 .fixed {
   position: fixed;
 }

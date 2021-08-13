@@ -27,3 +27,9 @@ navoff.onclick=function(){
     navoff.classList.add("hide")
 }
 
+document.onreadystatechange =function(){
+    let loading = document.querySelector('.planet')
+    if(document.readyState == 'complete'){
+        loading.classList.add('active')
+    }
+}
