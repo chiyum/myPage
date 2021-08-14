@@ -27,6 +27,8 @@ navoff.onclick=function(){
     navoff.classList.add("hide")
 }
 
+
+//載入動畫
 document.onreadystatechange =function(){
     let loading = document.querySelector('.planet')
     if(document.readyState == 'complete'){
