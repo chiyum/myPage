@@ -79,22 +79,87 @@
         </div>
         <div class="content">
             <div class="title">
-                <a href="#" class="titleFirst">JavaScript</a>
+                <a href="./js.html" class="titleFirst">JavaScript</a>
                 <div class="t04"></div>
                 <!-- <a href="#">this的用途</a> -->
                 <!-- 依照分頁標題命名 -->
             </div>
-            <div class="main">
+            <div class="main" id="noHeight">
+                <!--id="noHeight"//固定高度解除-->
                 <p class="time">Aug 28,2021</p>
-                <h1>JavaScript 總導覽頁面</h1>
+                <h1>語法作用域 Lexical Scope</h1>
                 <!-- 依分頁標題敘述 -->
-                <ul>
-                    <li><a href="./jsCode.html">個人常用JS代碼 ➤</a></li>
-                    <li><a href="./jsThis.html">this是誰?用途是? ➤</a></li>
-                    <li><a href="./jsBase.html">變數及function、for、if、switch淺談 ➤</a></li>
-                    <li><a href="./jsScope.html">語法作用域 Lexical Scope ➤</a></li>
-                    <li><a href="./jsundefined.html">undefined、is not defined、 isNaN 差異 ➤</a></li>
-                </ul>
+               <div>
+JavaScript在作用域中屬於語法作用域，也稱為靜態作用域。
+所謂語法作用域就是指，在語法解析時就已經確定了執行範圍。
+白話一點就是:在你一開始寫好程式碼的時候就已經，決定了程式碼執行的範圍。
+
+讓我們從以下範例中了解:
+<p id="block">
+    var cat = '小貓2號'
+
+    function sayHI(){
+        var cat = '小貓1號'
+        console.log(cat)
+    }
+    sayHI() <span id="tag">//顯示小貓1號</span>
+
+</p>
+從以上範例可以得知，<span id="tag">若全域變數及區域變數同時都擁有相同的變數下，</span> 
+function會選擇本身擁有的變數下去執行，function這個區域變數本身就是一個作用域。
+
+但是呢!<span id="tag">若子層的作用域沒有找到相應的變數時</span>，就會往外尋找相應之變數:
+<p id="block">
+    var cat = '小貓2號'
+
+    function sayHI(){
+        console.log(cat)
+    }
+    sayHI() <span id="tag">//顯示小貓2號</span>
+
+</p>
+如上顯示，當子層作用域沒有，但父層作用域有變數時，子層作用域就會向外尋找相應的變數，
+不過卻無法反過來，也就是說父層無法讀取到子層作用域的變數。
+<p id="block">
+    function sayHI(){
+        var cat = '小貓1號'
+    }
+    console.log(cat) <span id="tag">//顯示 <span id="red">is not defined</span> 因為偵測不到這個變數存在</span>
+
+</p>
+從上述幾點我們只是理解作用域能從子層向外尋找變數，還是不太能清晰的了解作用域的執行範圍，
+所以我們繼續看以下的範例:
+<p id="block">
+    var cat = '小貓1號'
+    function sayHI(){
+       console.log(cat) <span id="tag">//顯示小貓1號</span>
+    }
+    function sayHI2(){
+        var cat = '小貓2號'
+        sayHI()
+    }
+   sayHI2() <span id="tag">//還是顯示小貓1號</span>
+
+</p>
+明明已經將sayHI()置入了sayHI2的function內了，為何還是會顯示小貓1號呢?
+因為當撰寫好的syaHI()這個function時就確定了他的執行範圍，
+<sapn id="tag">sayHI()</sapn>及<sapn id="tag">sayHI2()</sapn>就是不同的作用域，若本身沒有變數只會向父層尋找，
+並不會因為syaHI()在其他的function內就從而改變。
+
+EX:
+這邊補充一點，當我們在子層作用域取得父層作用域的變數並改動變數時，
+父層作用域的變數也會因此而改動，這稱為內向作用。
+<p id="block">
+    var a = 1
+
+    function changeA(){
+        a= 2
+    }
+    changeA()
+    console.log(a)<span id="tag"> //顯示2</span>
+
+</p>
+               </div>
             </div>
             <!-- 廣告 -->
             <div class="ad">
@@ -132,6 +197,12 @@
     </div>
     <!-- js -->
     <script src="../js/child.js"></script>
+    <script>
+    //      function sayHI(){
+    //     var cat = '小貓1號'
+    // }
+    // console.log(cat)
+    </script>
 </body>
 </html>
 

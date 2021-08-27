@@ -79,22 +79,81 @@
         </div>
         <div class="content">
             <div class="title">
-                <a href="#" class="titleFirst">JavaScript</a>
+                <a href="./js.html" class="titleFirst">JavaScript</a>
                 <div class="t04"></div>
                 <!-- <a href="#">this的用途</a> -->
                 <!-- 依照分頁標題命名 -->
             </div>
-            <div class="main">
+            <div class="main" id="noHeight">
+                <!--id="noHeight"//固定高度解除-->
                 <p class="time">Aug 28,2021</p>
-                <h1>JavaScript 總導覽頁面</h1>
+                <h1>undefined、is not defined、 NaN 差異</h1>
                 <!-- 依分頁標題敘述 -->
-                <ul>
-                    <li><a href="./jsCode.html">個人常用JS代碼 ➤</a></li>
-                    <li><a href="./jsThis.html">this是誰?用途是? ➤</a></li>
-                    <li><a href="./jsBase.html">變數及function、for、if、switch淺談 ➤</a></li>
-                    <li><a href="./jsScope.html">語法作用域 Lexical Scope ➤</a></li>
-                    <li><a href="./jsundefined.html">undefined、is not defined、 isNaN 差異 ➤</a></li>
-                </ul>
+               <div>
+當撰寫JS的時候時常會出現以下三種錯誤訊息，
+三種錯誤訊息又有甚麼不同呢?差別在哪裡?
+
+說起這個就要先說明提升，這邊簡單的說明一下提升為何。
+當JS在運行的時候會分為兩個步驟創造環境與執行環境。
+拿以下範例來說明:
+<span id="title">變數:</span>
+<p id="block">
+   var a = 1
+   <span id="tag">創造階段↓</span>
+   var  a <span id="red">//一開始會先宣告變數</span>
+   <span id="tag">執行階段↓</span>
+   a = 1 <span id="red">//直到執行階段時才會賦予值</span>
+</p>
+<span id="title">函式:</span>
+<p id="block">
+    fu()<span id="red">//依舊會顯示console.log的內容</span>
+
+    function fu(){
+        console.log('測試')
+    }
+    <span id="tag">創造階段↓</span>
+    function fu(){
+        console.log('測試')
+    }<span id="red">//在開始的時候就已經準備好執行</span>
+    <span id="tag">執行階段↓</span>
+    fu()<span id="red">//直到執行階段時立刻觸發</span>
+ </p>
+<span id="title">簡單總結一下:</span>
+<span id="tag">變數</span><span id="line">是一開始會先建立，但還不會賦予值，直到執行的時候才會賦予。</span>
+而<span id="tag">函式</span><span id="line">則是在一開始的時候就先建立好函式，執行階段的時候便直接執行。</span>
+所以不論函式的執行位置是在函式陳述式的前或後，它都是可以執行的，因為在創造環境時
+函式就已經建構完成，只待執行。
+
+<span id="title">undefined:</span>
+提升介紹完了，那麼接下來進入重點，首先先談undefiend。
+從提升的介紹我們可以得知，變數在執行的時候才會賦予值。
+所以當變數還沒賦予值之前，它就是undefined。
+<p id="block">
+    console.log(a)<span id="red">//此時為undefined</span>
+    var a = 1 
+    console.log(a)<span id="red">//此時則為1</span>
+
+</p>
+為何在變數宣告前會等於undefined呢?
+因為在前面有說過，在載入JS的時候，就分為創造與執行兩個階段。
+所以載入時已經存在了a這個變數，是等到輪到a = 1這個階段的時候，
+才會將1賦予到a上。
+因此在宣告後的(也就是執行階段完成後)使用console.log查詢，才能查詢到1這個值。
+
+<span id="title">is not defined:</span> 
+<span id="tag">東西</span> is not defined 翻譯過來就是找不到這個東西。
+也就是說，系統並沒有偵測的<span id="tag">東西</span>這個變數。
+從上面的例子我們可以看到，當有變數但沒有值的時候會顯示undefined，
+而is not defined 就是完全沒有這個變數。
+當沒有宣告變數，自然也就沒有這個變數。
+
+<span id="title">NaN:</span>
+NaN這部分就比較簡單明瞭一些。
+NaN = not a number  <span id="red">//不是一個數字</span>
+由此可知，當出現NaN時，也就代表本該是數字的值卻不是數字。
+例如計算的時候:
+1 + '我' = NaN 
+               </div>
             </div>
             <!-- 廣告 -->
             <div class="ad">
@@ -132,6 +191,12 @@
     </div>
     <!-- js -->
     <script src="../js/child.js"></script>
+    <script>
+    //      function sayHI(){
+    //     var cat = '小貓1號'
+    // }
+    // console.log(cat)
+    </script>
 </body>
 </html>
 
