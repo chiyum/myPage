@@ -15,7 +15,7 @@ body,html{//平穩滾動錨點
 }
 //選單
 .nav{
-    position: absolute;
+    position: fixed;
     left: -100%;
     width: 100%;
     z-index: 99;
