@@ -258,4 +258,43 @@ white-space: pre-wrap;
     &ltlink rel="stylesheet" href="CSS檔案路徑"&gt //導入外部CSS樣式
     &ltscript type="text/javascript" src="JS檔案路徑"&gt&lt/script&gt 導入外部Javascript
 
-	以上參考至六角學院
+
+	網頁可見區域寬：document.body.clientWidth
+網頁可見區域高：document.body.clientHeight
+網頁可見區域寬：document.body.offsetWidth (包括邊線的寬)
+網頁可見區域高：document.body.offsetHeight (包括邊線的寬)
+網頁正文全文寬：document.body.scrollWidth （帶滾動條寬）
+網頁正文全文高：document.body.scrollHeight （帶滾動條高）
+網頁被捲去的高：document.body.scrollTop
+網頁被捲去的左：document.body.scrollLeft
+網頁正文部分上：window.screenTop
+網頁正文部分左：window.screenLeft
+螢幕解析度的高：window.screen.height
+螢幕解析度的寬：window.screen.width
+螢幕可用工作區高度：window.screen.availHeight
+螢幕可用工作區寬度：window.screen.availWidth
+
+HTML精確定位:scrollLeft,scrollWidth,clientWidth,offsetWidth
+scrollHeight: 獲取物件的滾動高度。
+scrollLeft:設定或獲取位於物件左邊界和視窗中目前可見內容的最左端之間的距離
+scrollTop:設定或獲取位於物件最頂端和視窗中可見內容的最頂端之間的距離
+scrollWidth:獲取物件的滾動寬度
+offsetHeight:獲取物件相對於版面或由父座標 offsetParent 屬性指定的父座標的高度
+offsetLeft:獲取物件相對於版面或由 offsetParent 屬性指定的父座標的計算左側位置
+offsetTop:區塊頂端至父層邊界的距離
+event.clientX 相對文件的水平座標
+event.clientY 相對文件的垂直座標
+event.offsetX 相對容器的水平座標
+event.offsetY 相對容器的垂直座標
+document.documentElement.scrollTop 垂直方向滾動的值
+event.clientX document.documentElement.scrollTop 相對文件的水平座標 垂直方向滾動的量
+
+
+offsetTop:區塊頂端邊界至父層邊界的距離
+offsetLeft:區塊左邊界至父層邊界的距離
+offsetWidth:網頁可見區域寬(包括邊線的寬)
+offsetHeight:網頁可見區域高 (包括邊線的寬)
+scrollHeight: 獲取物件的滾動高度。
+scrollLeft:設定或獲取位於物件左邊界和視窗中目前可見內容的最左端之間的距離
+scrollTop:設定或獲取位於物件最頂端和視窗中可見內容的最頂端之間的距離
+scrollWidth:獲取物件的滾動寬度
