@@ -35,3 +35,4 @@ document.onreadystatechange =function(){
         loading.classList.add('active')
     }
 }
+

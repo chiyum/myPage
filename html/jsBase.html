@@ -111,6 +111,7 @@ button.textContent ='安安你好';
 
 變數其中一個存在的點就是為了節省每一次要指定元素都得打一大段代碼，省略了這個麻煩。
 
+----------
 <span id="title">Function函式:</span>
 函式是甚麼?用處又是?
 以生活來講解的話，函式好比是一個任務。
@@ -140,25 +141,82 @@ sayWelcome()就是執行任務
 EX.另外function還有個特性就是當執行以後才會把代碼給呼叫出來，執行完成後並刪除。
 這個目的主要是為了節省占用的記憶體。
 
-<span id="tag">以下簡單描寫型態，之後還會再解釋，未完待續。</span>
+----------
 <span id="title">if判斷式</span>
-型態:
-if(滿足條件){
-    執行內容
+<span id="titleh2">型態:</span>
+if(滿足條件){執行內容}
+
+<span id="titleh2">說明:</span>
+if 其實不難理解，只要把話說白了就很容易理解。
+從上述的型態來說()內是條件，只要()內是true也就是滿足條件內容，
+那麼{ }內的程式碼就會執行。
+例如 1 + 1 == 2 
+1 + 1 很明顯等於2
+2 是否等於 2 答案也是正確也就是true。
+那麼if就會執行。
+
+<span id="titleh2">else if(){ }:</span>
+那假設有多個if要判斷呢?這個時候else if就派上用場了。
+它的用法與if相同，差別是會先判斷完if後再接著判斷else if
+若if 不滿足那就接著判斷else if()內的內容，並執行它{}的程式碼
+
+<span id="titleh2">else{ }:</span>
+最後呢，當if及else if的條件都不滿足且不執行時，使用else就一定會執行。
+(若前面有if有任何一個執行，那else也就不會執行)
+假設飽足感分為10分，越高越飽:
+if(飽足感 &lt= 3){
+
+    吃便當 <span id="red">//很餓所以吃一顆便當才會飽</span>
+
+}else if(飽足感 > 3 && 飽足感 &lt 7){
+
+    吃麵包 <span id="red">//只有一點餓，所以吃麵包充飢</span>
+
+}else{
+
+    都不吃 <span id="red">//因為不餓，所以都不吃</span>
+
 }
+從上面的範例可以知道，當前面條件都沒滿足，也就是飽足感在7(含7)以上的時候。
+就執行都就一定會執行不吃這個動作，這就是else的用途。
 <span id="tag">EX.for包if，在if{}內只執行滿足if條件的代碼</span>
+----------
 <span id="title">switch</span>
-型態:
+<span id="titleh2">型態:</span>
+let a ='條件' <span id="red">//會套入()內的，這個就是條件</span>
+
 switch(條件){
     case '滿足條件':
     執行內容
     breack;
+
+    default:
+    執行的內容
+    breack
 }
+<span id="titleh2">說明:</span>
+switch與if有些類似，只要( )內條件與case '滿足條件'內的內容完全相同
+那就會執行case與breack之間的程式碼
+這個case可以有很多，全由開發者來定，只要()內有對到case ''都會執行。
+
+<span id="titleh2">case與breack:</span>
+case及breack可以看作是一個人，
+case就是頭，breack就是腳，缺一不可，而執行的程式碼就是身體。
+case就是對條件用，其底下則是執行的程式碼，
+而breack則是有中斷case內的程式碼的用途，類似return，
+只要是breack後的程式碼都不會執行，白話一點就是這段case的程式碼只執行到這。
+<span id="titleh2">default:</span>
+if有else，switch也有，default就是switch的else，
+只要上述條件都沒對上，那麼default就一定會執行，若有其中一個有對上，
+那麼則不會運行。
+
+----------
 <span id="title">for迴圈</span>
-型態:
+<span id="titleh2">型態:</span>
 for(var i = 0;i&lt次數:i++){
     執行內容
 }
+for介紹可以<a href="./jsFor.html">點此觀看</a>這邊就不再贅述。
                </div>
             </div>
             <!-- 廣告 -->

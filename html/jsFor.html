@@ -79,23 +79,61 @@
         </div>
         <div class="content">
             <div class="title">
-                <a href="#" class="titleFirst">JavaScript</a>
+                <a href="./js.html" class="titleFirst">JavaScript</a>
                 <div class="t04"></div>
                 <!-- <a href="#">this的用途</a> -->
                 <!-- 依照分頁標題命名 -->
             </div>
-            <div class="main">
-                <p class="time">Aug 28,2021</p>
-                <h1>JavaScript 總導覽頁面</h1>
+            <div class="main" id="noHeight">
+                <!--id="noHeight"//固定高度解除-->
+                <p class="time">Aug 29,2021</p>
+                <h1>for 及 for of 用法</h1>
                 <!-- 依分頁標題敘述 -->
-                <ul>
-                    <li><a href="./jsCode.html">個人常用JS代碼 ➤</a></li>
-                    <li><a href="./jsThis.html">this是誰?用途是? ➤</a></li>
-                    <li><a href="./jsBase.html">變數及function、for、if、switch淺談 ➤</a></li>
-                    <li><a href="./jsFor.html">for及 for of 用法 ➤</a></li>
-                    <li><a href="./jsScope.html">語法作用域 Lexical Scope ➤</a></li>
-                    <li><a href="./jsundefined.html">undefined、is not defined、 isNaN 差異 ➤</a></li>
-                </ul>
+               <div>
+今天要講解的是關於ES6的for of 迴圈的用法。
+其實for of用法與原先的for作用是一樣的，只是更加簡潔。
+
+先簡單說明先前的for迴圈:
+<p id="block">
+    for (let i = 0;i &lt array.length;i++){ }
+    ()內分別代表:
+    (初始值;條件;更新狀態)
+
+</p>
+<span id="title">初始值</span> = 要開始執行的數字。
+在JavaScript數字是從 0 開始數，所以初始設定通常都是用 0。
+
+<span id="title">條件</span> = 在滿足條件之前停止執行。
+假設今天陣列內有3個物件那麼length就會等於3
+而我們設定 i &lt 3 
+那當i還不等於3之前就會持續執行
+
+<span id="title">更新狀態</span> = 更新迴圈目前執行的次數
+這邊就得說明迴圈()內的執行流程了
+1.偵測初始值等於多少。
+2.偵測條件是否滿足，沒滿足就繼續執行。例i = 0; i &lt 3
+   在i不成為3之前是不會停止執行的。
+3.執行的同時更新狀態。
+執行一次了，那就把i++ 更新目前執行的次數。
+補充:簡單說明一下++就是+1的意思，那i++也就是i+1。
+當跑完一次迴圈後 i 就會+1
+
+
+<span id="title">for of </span>
+原先的for說明完了，接下來進入重點for of。
+for of 的型態是這樣的:
+<p id="block">
+    for (let i of array){ }
+
+</p>
+首先let i 就是初始值。for of 直接幫你把 i 代入0了
+而array 則是你要執行的次數，
+陣列內有多少物件，也就執行多少次數。
+以往我們使用for迴圈都是使用array.length來偵測物件的數量並以此為執行次數，
+for of 則是直接省略了這個步驟直接帶入次數。
+綜合上述幾點for of 省略了攏長的字串，使版面更加的簡潔，
+如果不排斥可以嘗試使用。
+               </div>
             </div>
             <!-- 廣告 -->
             <div class="ad">
@@ -133,6 +171,12 @@
     </div>
     <!-- js -->
     <script src="../js/child.js"></script>
+    <script>
+    //      function sayHI(){
+    //     var cat = '小貓1號'
+    // }
+    // console.log(cat)
+    </script>
 </body>
 </html>
 
