@@ -79,18 +79,22 @@
         </div>
         <div class="content">
             <div class="title">
-                <a href="#" class="titleFirst">JQuery</a>
+                <a href="./jq.html" class="titleFirst">JQuery</a>
                 <div class="t04"></div>
                 <!-- <a href="#">this的用途</a> -->
                 <!-- 依照分頁標題命名 -->
             </div>
             <div class="main">
+                <!--id="noHeight"//固定高度解除-->
                 <p class="time">Sept 9,2021</p>
-                <h1>JQuery 總導覽頁面</h1>
+                <h1>JQ 回到頂端用法</h1>
                 <!-- 依分頁標題敘述 -->
-                <ul>
-                    <li><a href="./jqGotop.html">回到頂端用法</a></li>
-                </ul>
+               <div>
+$('#gototopId').click(function(e){
+    e.preventDefault() <span id="red">//取消默認事件</span>
+    $('html,body').animate({scrollTop:0},毫秒)
+  })
+               </div>
             </div>
             <!-- 廣告 -->
             <div class="ad">
@@ -128,7 +132,14 @@
     </div>
     <!-- js -->
     <script src="../js/child.js"></script>
+    <script>
+    //      function sayHI(){
+    //     var cat = '小貓1號'
+    // }
+    // console.log(cat)
+    </script>
 </body>
 </html>
 
 <!-- &lt/內容/&gt -->
+
