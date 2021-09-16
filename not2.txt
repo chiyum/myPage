@@ -319,3 +319,91 @@ let store = {  //物件實字
 let newStore = new Object(store)
 
 若是插入物件，就變成物件包裹物件，插入甚麼就變成什麼樣的包裹物件。
+
+
+-----------------
+for in 及 for of 差別
+
+let arr = ['a','b','c','d',{'e':'e_value','f':'f_value'}];
+
+for(let index in arr){
+    console.log(index);
+}
+// 0,1,2,3,4
+//---------------------------------------------------
+//若想要用for in 取value，也是可以
+for(let index in arr){
+    console.log(arr[index]);
+}
+//a,b,c,d,{'e':'e_value','f':'f_value'}
+//---------------------------------------------------
+//for in 會遍歷自定義屬性
+arr.name='myArray';
+for(let index in arr){
+    console.log(index);
+}
+// 0,1,2,3,4,name
+//若寫console.log(arr[index])，自定義的name則會印出其內容'myArray'
+//---------------------------------------------------
+//但用for of，則可以寫的更優雅。且不會遍歷自定義屬性
+for(let value of arr){
+    console.log(value);
+}
+//a,b,c,d,{'e':'e_value','f':'f_value'}
+
+前文可以看到for of修正了for in的問題，同時解決array中.forEach限制的continue、break
+
+但在JavaScript中，除了陣列，最常使用的就是object了！
+
+直接將for of套用在object中，卻發現直接報錯！因為object本身不是一個可迭代的對象，所以無法遍歷！
+
+這時候就要配合Object.keys()來做了
+
+let obj = {
+   a:'a_value',
+   b:'b_value', 
+   c:'c_value'
+}
+
+for(let key of Object.keys(obj)){
+    console.log(obj[key]);
+}
+//a_value,b_value,c_value
+
+但這樣寫就太過冗長，不如就直接用for in來做
+
+而這也是for in的主要工作
+
+for(let idx in obj){
+    console.log(obj[idx]);
+}
+//a_value,b_value,c_value
+
+
+若您的資料結構較複雜，有一堆object組合而成的陣列，想要遍歷陣列裡的物件的value
+
+這又該怎麼寫呢？
+
+就要結合for in跟for of了！
+
+let complexArray = [
+    {
+        name:'小明',
+        birth:'1995/07/01'
+    },
+    {
+        name:'小美',
+        birth:'1989/11/17'
+    },
+    {
+        name:'小帥',
+        birth:'1990/06/25'
+    }
+]
+
+for(let obj of complexArray){ //先遍歷出所有物件
+    for(let key in obj){ //再遍歷每一物件的key，取得value
+        console.log(obj[key]);
+    }
+}
+//小明,1995/07/01,小美,1989/11/17,小帥,1990/06/25   

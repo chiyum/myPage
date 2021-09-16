@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Holdkibor</title>
+    <link rel="stylesheet" href="../css/js.css">
+    
+</head>
+<body>
+    <div class="wrap">
+        <div class="header" id="top">
+            <div class="nav">
+                <ul class="navul">
+                    <p class="hide">✕</p>
+                    <img src="../img/formalLogoNb.png" alt="logo">
+                    <li class="navTitle">MANU</li>
+                    <li>
+                        <a href="../index.html">Home<span>❯</span></a>
+                        <div></div>
+                    </li>
+                    <li>
+                        <a href="./htmlS.html">HTML<span>❯</span></a>
+                        <div></div>
+                    </li> 
+                    <li>
+                        <a href="js.html">JavaScript<span>❯</span></a>
+                        <div></div>
+                    </li>
+                    <li>
+                        <a href="css.html">CSS<span>❯</span></a>
+                        <div></div>
+                    </li>
+                    <li>
+                        <a href="jq.html">JQuery<span>❯</span></a>
+                        <div></div>
+                    </li>
+                    <li>
+                        <a href="about.html">About us<span>❯</span></a>
+                        <div></div>
+                    </li>
+                </ul>
+            </div>
+            <div class="navComputer">
+                <a href="../index.html"><img src="../img/formalLogoNb.png" alt="logo"></a>
+                <div class="navclick">
+                    <div class="Cone"></div>
+                    <div class="Ctwo"></div>
+                    <div class="Cthree"></div>
+                </div>
+                <ul>
+                    <li>
+                        <a href="../index.html">Home</a>
+                        <div></div>
+                    </li>
+                    <li>
+                        <a href="./htmlS.html">HTML</a>
+                        <div></div>
+                    </li>
+                    <li>
+                        <a href="css.html">CSS</a>
+                        <div></div>
+                    </li>  
+                    <li>
+                        <a href="js.html">JavaScript</a>
+                        <div></div>
+                    </li>
+                    <li>
+                        <a href="jq.html">JQuery</a>
+                        <div></div>
+                    </li>
+                    <li>
+                        <a href="about.html" class="last">About us</a>
+                        <div></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="content">
+            <div class="title">
+                <a href="./js.html" class="titleFirst">JavaScript</a>
+                <div class="t04"></div>
+                <!-- <a href="#">this的用途</a> -->
+                <!-- 依照分頁標題命名 -->
+            </div>
+            <div class="main" id="noHeight">
+                <!--id="noHeight"//固定高度解除-->
+                <p class="time">Sept 13,2021</p>
+                <h1>載入狀態 Document.readyState</h1>
+                <!-- 依分頁標題敘述 -->
+               <div>
+Document.readyState為網頁的載入狀態。共分成三個狀態:
+
+loading / 載入 。document 仍在載入。
+
+interactive / 互動。文件已經完成載入，文件已被解析，
+但是諸如影象，樣式表和框架之類的子資源仍在載入。
+
+complete / 完成。T文件和所有子資源已完成載入。
+
+因此，當若要再載入時有載入畫面，可以在一開始就先顯示載入畫面，
+接著在載入狀態為完成時再使載入畫面消失。作法為:
+
+document.onreadystatechange =function(){
+    let loading = document.querySelector('.planet')
+    if(document.readyState == 'complete'){
+        loading.classList.add('active')
+    }
+}
+
+白話說明以上操作。首先是onreadystatechange這個程式碼，
+此代碼在document.readyState的狀態改變時會觸發，所以我們設置了個if。
+當載入狀態為完成時，使載入畫面加入active這個class，使畫面消失
+
+               </div>
+            </div>
+            <!-- 廣告 -->
+            <div class="ad">
+                <div></div>
+                <p>
+                    <a href="https://chiyum.github.io/testweb/">
+                        <img src="../img/ad.jpg" alt="ad">
+                    </a>
+                    <a href="https://chiyum.github.io/restaurant/"><img src="../img/adyuu.gif" alt="nako" class="cat"></a>
+                </p>
+            </div>
+            <!-- 聯絡資料 -->
+            <div class="mainContact">
+                <a href="#"><img src="../img/fb.png" alt="聯絡資訊圖標"></a>
+                <a href="#"><img src="../img/twitter.png" alt="聯絡資訊圖標"></a>
+                <a href="#"><img src="../img/line.png" alt="聯絡資訊圖標"></a>
+            </div>
+        </div>
+        <div class="footer" id="footerId">
+            <img src="../img/kiborLogo.png" alt="logo" class="ftlogo">
+            <div class="contact"> 
+                <a href="mailto:qcc870712@gmail.com">
+                   <span><img src="../img/mailicon2.png" alt="mailicon">mail</span>
+                   <p>mail:qcc870712@gmail.com</p>
+                </a>
+                <p>本網站為學術及個人用途
+                    <br>Copyright © 2021 Holdkibor
+                </p>
+            </div>
+        </div>
+        <!-- 返回鍵 -->
+        <div class="icon">
+            <a href="#top"><img src="../img/up.png" alt="upicon"></a>
+        </div>
+    </div>
+    <!-- js -->
+    <script src="../js/child.js"></script>
+</body>
+</html>
+
+<!-- &lt/內容/&gt -->

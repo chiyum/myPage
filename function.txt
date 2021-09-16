@@ -1,0 +1,264 @@
+此篇介紹關於function深入用法:
+
+首先函式其實也是一種物件，就跟全域window一樣。
+但function與其他物件不同:
+
+1.function有被呼叫的能力。
+呼叫就使指將建立好的function執行，便稱為呼叫。
+
+2.有自己的片段。{}稱為片段，在內所宣告的便稱為區域變數。
+
+
+function sayHI(){
+
+    console.log('HI')
+
+}
+
+
+sayHI()//這就叫呼叫。
+
+
+---------
+函式的回傳及參數的代入:
+
+除了表達式以外，函式也可以使用return回傳值。
+不管是變數，還是字串等等物件都可以回傳。
+
+
+function sayHI(person){
+
+    return 'HI! ' + person
+
+}
+
+var data = sayHI('小明')//這邊就將回傳的字串及代入的參數賦予給變數
+
+console.log(data)//顯示HI! 小明
+
+
+----------
+函式的陳述式及表達式:
+
+陳述式(具名函式):
+型態:function fnA(){}
+
+fnA()
+
+
+表達式(匿名函式):
+型態:var fnB = function(){}
+
+前面我們有說過，物件都有自己的參考路徑，而function身為物件，自然也有自己的參考路徑。
+所以表達式就是將函式的路徑賦予給予變數
+
+fnB()
+
+
+不是所有的表達式都是匿名函式:
+型態:var fnC = function fnD(){}
+
+
+var fnC = function fnD(){
+
+    console.log(fnX)
+
+}
+
+fnC()//會導向fnD的參考路徑
+
+此特性是只能在函式內被調用，若是在函式外使用fnD()將無法讀取到內容。
+
+----------
+
+此範例值得深思，可以參考一下。
+
+var num = 1
+
+var giveMeMoney = function giveMoreMoney(coin) {
+  num += 1;
+  console.log('執行 giveMeMoney', num, coin);
+  return coin > 100 ? coin : giveMoreMoney(num * coin);
+
+console.log(giveMeMoney(30));
+
+
+白話解釋:
+
+其實使用陳述式OR表達式都沒有差別，主要是函式內容。
+
+
+當我們代入30至coin這個參數時，num會+1也就變成2
+consolo.log會先顯示代入的參數及num的value
+接著return 三元運算式所計算出的value
+三元運算式的內容為當coin不小於100時，回傳coin
+但若小於100時，又再次執行giveMoreMoney並套入參數(num*coin)
+此時是在原先的giveMeMoney底下運行，所以coin自然是30
+num是父層變數所以可以取得，此時的num因為+1已為2
+2*30 = 60 //60還是不滿足條件，所以重複上面動作，直到滿足條件。
+最後60*3 =180
+180再套入giveMoreMoney條件有滿足>100，所也就回傳180這個值。
+
+補充:三元運算式就是if的else，前者if不滿足，就執行後者。
+
+----------
+立即函式(IIFE):
+型態:(function (){}());
+型態二:(function (){})();
+
+特點:
+一.立刻執行
+二.無法於函式外再次執行
+
+補充:api無法自動補上;，所以需要自己補上;
+補充二:函式可命名亦可不命名
+
+常用於限制變數的作用域。
+
+----------
+立即函數代入參數的方式:
+型態:(function(e){}(代入的參數))
+
+var a = (function(e){
+
+    console.log(e)
+    return e
+
+}('安安你好'))
+
+console.log(a)//顯示安安你好
+
+//立即函式同樣也可以使用表達式取得值
+
+--------
+立即函式傳遞變數方法:
+簡單來說就是透過物件的屬性。
+
+var a = {}
+
+(function(b){
+    b.content = '你好'
+}(a));
+
+
+(function(c){
+    console.log(c.content)//顯示你好
+}(a));
+
+通常是透過全域物件的方式:
+
+(function(global){
+    global.content = '你好'
+}(window));
+
+
+(function(c){
+    console.log(content)//顯示你好
+}());
+
+通常是運用在大型的框架上，如vue。
+
+
+
+---------
+參數:
+以下以範例進行說明:
+
+
+
+var globalVariable = '全域變數'
+
+var obj = {
+
+    aFunction:function(para){
+
+        var localVariable ='區域變數'
+        console.log(para,localVariable,arguments,this,globalVariable)
+    }
+
+}
+
+obj.aFunction('一段描述',2,3)
+
+一.我們的參數是para，但代入的參數有三個，系統只會取第一個
+二.arguments 無論傳入多少參數，都會接受並產生一個類陣列。
+
+補充說明:但若參數大於傳入的參數，那不足的數量將會以undefined做填補。
+
+
+----------
+
+function callName(a){
+    var a;
+    console.log(a)
+}
+
+callName('小明')//顯示小明
+
+在參數傳入之後就已經宣告好a這個屬性了，所以後面在宣告屬性是沒有用處的。
+除非在片段內賦予值:
+
+
+function callName(a){
+
+    a = '杰倫'
+    console.log(a)
+
+}
+
+callName('小明')//顯示杰倫
+
+
+----------
+以函式代入函式
+
+function fnA(fn){
+    fn('小明')
+}
+
+functionA(function(a){
+    console.log(a)//顯示小明
+})
+
+第二種~~~~
+
+callName(name){
+
+    console.log(name)
+
+}
+
+function fnA(fn){
+    fn('小明')
+}
+
+functionA(callName)//此時這裡不須代參數
+//顯示小明
+
+/////以上稱為callbackfunction
+
+----------
+
+arguments說明:
+
+callName(1,2,3,'4')
+
+function callName(a){
+    console.log(a.arguments)//顯示1及arguments陣列
+    for(let key in arguments){
+        console.log(arguments[key])//顯示1.2.3.4
+    }
+}
+
+
+of用法:
+
+function callName(a){
+    for(let key of arguments){
+        console.log(key)//顯示1.2.3.4
+    }
+}
+
+從以上可以看出來of的key是value，in的key是每個value的號碼
+
+之所以說arguments是類陣列是因為，它沒有陣列該有的包裹物件，如forEach等。
