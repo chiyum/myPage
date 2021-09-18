@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Holdkibor</title>
+    <link rel="stylesheet" href="../css/js.css">
+    
+</head>
+<body>
+    <div class="wrap">
+        <div class="header" id="top">
+            <div class="nav">
+                <ul class="navul">
+                    <p class="hide">✕</p>
+                    <img src="../img/formalLogoNb.png" alt="logo">
+                    <li class="navTitle">MANU</li>
+                    <li>
+                        <a href="../index.html">Home<span>❯</span></a>
+                        <div></div>
+                    </li>
+                    <li>
+                        <a href="./htmlS.html">HTML<span>❯</span></a>
+                        <div></div>
+                    </li> 
+                    <li>
+                        <a href="js.html">JavaScript<span>❯</span></a>
+                        <div></div>
+                    </li>
+                    <li>
+                        <a href="css.html">CSS<span>❯</span></a>
+                        <div></div>
+                    </li>
+                    <li>
+                        <a href="jq.html">JQuery<span>❯</span></a>
+                        <div></div>
+                    </li>
+                    <li>
+                        <a href="about.html">About us<span>❯</span></a>
+                        <div></div>
+                    </li>
+                </ul>
+            </div>
+            <div class="navComputer">
+                <a href="../index.html"><img src="../img/formalLogoNb.png" alt="logo"></a>
+                <div class="navclick">
+                    <div class="Cone"></div>
+                    <div class="Ctwo"></div>
+                    <div class="Cthree"></div>
+                </div>
+                <ul>
+                    <li>
+                        <a href="../index.html">Home</a>
+                        <div></div>
+                    </li>
+                    <li>
+                        <a href="./htmlS.html">HTML</a>
+                        <div></div>
+                    </li>
+                    <li>
+                        <a href="css.html">CSS</a>
+                        <div></div>
+                    </li>  
+                    <li>
+                        <a href="js.html">JavaScript</a>
+                        <div></div>
+                    </li>
+                    <li>
+                        <a href="jq.html">JQuery</a>
+                        <div></div>
+                    </li>
+                    <li>
+                        <a href="about.html" class="last">About us</a>
+                        <div></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="content">
+            <div class="title">
+                <a href="./js.html" class="titleFirst">JavaScript</a>
+                <div class="t04"></div>
+                <!-- <a href="#">this的用途</a> -->
+                <!-- 依照分頁標題命名 -->
+            </div>
+            <div class="main" id="noHeight">
+                <!--id="noHeight"//固定高度解除-->
+                <p class="time">Sept 18,2021</p>
+                <h1>原生 AJAX基礎介紹</h1>
+                <!-- 依分頁標題敘述 -->
+               <div>
+今天要介紹的是AJAX，又稱為API資料傳輸，
+目的是將資料傳送出去或接收回來以便調用。
+例如，登入及註冊或是youbick官網的即時站點資訊，
+全部都是通過AJAX完成的，可謂網頁中不可或缺的一部分。
+廢話不多說，直接開始吧!
+
+
+首先我們先帶出AJAX的程式碼。
+
+let xhr = new XMLHttpRequest();
+        //建立請求
+        
+        xhr.open('get','https://api.kcg.gov.tw/api/service/Get/b4dd9c40-9027-4125-8666-06bef1756092',true);
+        //請求對象.功能
+
+        xhr.send(null);
+        //資料傳送，我方傳送空值後，對方接受指令後回傳
+
+        xhr.onload =function(){}
+        //非同步執行onload
+
+
+
+接下來我們一個一個來說明。
+
+
+一. let xhr = new XMLHttpRequest;
+這個步驟簡單來說是建立請求。但若沒有相關經驗，對於建立請求這個詞大概不是很明白。
+舉個簡單的例子說明，今天以藍芽為例子。
+我們都知道藍芽是需要開啟才能進行傳送或接收等操作，建立請求大概就是這個概念。
+今天你需要開啟，其他人才能傳送文件給你，今天你需要開啟才可以連接到耳機。
+而今天我們要傳送或接受資料，就要建立請求才能進行後續的操作。
+
+
+二.xhr.open('get','網址',true);
+格式:格式,讀取的網址,同步與非同步
+
+首先是格式，常用的格式有傳送(post)及接收(get)
+在使用藍芽的時候也會有傳送文件或接受文件的選項，基本為同個意思。
+依你的需求，看今天是要接受對方的資料，還是傳送資料給對方。
+
+讀取網址的部分想來大家都明白也就跳過了，這邊比較重要的是同步與非同步。
+同步與非同步是甚麼意思?作用又是甚麼呢?
+
+非同步(true):不會等資料回傳，就會讓程式碼繼續往下跑。
+//也就是說假設資料還沒回傳，但我卻使用console.log撈資料，此時會撈到空值。
+//通常會搭配onload來將已經先撈好的資料進行操作，也就是第四步。
+
+同步(false):等到資料回傳，才會繼續執行之後的程式碼。
+
+
+以正常的網頁來說會使用true，因為正常情況下傳輸的資料量是非常大的，
+畢竟不可能讓使用者畫面就卡在那，等資料回傳。
+
+三.xhr.send(null);
+資料傳送。很白話的一句話，大家都明白。
+在這邊比較會有疑問的是，我明明是要接收資料，為何我還要傳送?括號中間的null又是甚麼作用?
+其實大概是這個概念。
+今天我們開啟藍芽了，同時也選擇好要連接的對象了，所以下一步就是要發送與對方連接的請求對吧?
+send就是如此，假設我們今天是要取得資料，但我們也要與對方做連接，所以還是需要傳送連結的請求。
+而null就是空值的意思，取得資料以前還是得向對方發出請求，所以就傳了個空值給對方。
+也就是僅發送連接請求而已。
+
+除了取得以外，自然還會有傳送了。
+若是要傳送資料，除了將資料放入，send的括號內以外，還須先執行一個步驟，就是設定傳送的格式。
+
+xhr.setRequestHeader('Content-type','application/x-www-form-urlencoded')
+    // 發送表單類型的資料：('Content-Type','application/x-www-form-urlencoded')
+    // 發送 JSON 類型的資料：('Content-Type','application/json')
+
+以上是格式的範例。還有一點須注意，
+那就是格式不要輸入錯誤，
+格式輸入錯誤會導致不論你取得值是否正確，都會顯示錯誤的BUG
+
+
+四.xhr.onload =function(){}
+在上面提到，若要使用非同步但又想要撈的到資料，就需要使用到onload了。
+onload白話來說，就是當接收到回傳的資料後才會觸發我們所設定好的事件。
+例如今天設定了consolo.log(xhr.responseText)，
+那麼當有接收到xhr.responseText的後才會使consolo.log()這個代碼運行。
+//這個時候資料還是持續的再傳輸，只是先將已經回傳的的資料先使用。
+
+補充:responseText這個我們在後面會說明。
+
+----------
+AJAX代碼用意:
+
+我們在建立並且連接成功以後，可以使用consolo.log查詢連接內容。
+而在這些內容中，有許許多多的代碼，分別都有它的用意。
+今天我們挑幾個重點來說明。
+
+readyState(請求狀態):
+藍芽有連接成功、連接中、連接失敗三個狀態，在AJAX的時候也能夠查詢連接的狀態。
+
+readyState 請求狀態
+
+0 = 已經建立請求，但尚未連接網址
+//當你建立請求但尚未有後續操作時，通常會顯示0
+
+1 = 已經建立了open()，決定好了格式與連結的網址，但還未進行傳送。
+
+2 = 偵測到你已經建立傳送
+
+3 = loading中 資料還在傳輸中
+
+4 = 已經完成對接並且雙方都接收到完整的資料
+
+
+status 回傳資料狀態
+除了連接的狀態外，還有一個回傳資料的狀態。
+拿藍芽來比喻就是傳送資料是否有成功。
+今天只介紹兩個常用的狀態，而狀態分別是:
+
+200 = 資料回傳成功，有撈取到資料
+
+404 = 資料讀取錯誤，沒有撈取到資料。
+
+
+responseText(回傳的資料):
+
+AJAX回傳的資料都會在這個代碼內，所以若要調用資料便是從這個代碼。
+調用資料前，首先我們要先了解到使用AJAX傳送或接收到的資料都會是字串。
+因此接收到的responseText就是字串形式。
+若需使用則需要將字串給轉化，通常都會是轉成物件也就是JSON.parse()。
+例子.let data =JSON.parse(xhr.responseText);
+接著就可以依使用物件的方法，去調用資料。
+//這邊補充一點，物件的屬性為非英文，可以使用object['屬性名稱']來取得value
+
+補充: cors 跨網域撈取資料設定
+
+並不是所有的網址都可以做連接，若網址有設定無法跨網域撈取資料。
+以下網址可以偵測是否有設定cors:
+http://www.test-cors.org/
+
+以上就是今天的AJAX基礎介紹及教學。
+
+               </div>
+            </div>
+            <!-- 廣告 -->
+            <div class="ad">
+                <div></div>
+                <p>
+                    <a href="https://chiyum.github.io/testweb/">
+                        <img src="../img/ad.jpg" alt="ad">
+                    </a>
+                    <a href="https://chiyum.github.io/restaurant/"><img src="../img/adyuu.gif" alt="nako" class="cat"></a>
+                </p>
+            </div>
+            <!-- 聯絡資料 -->
+            <div class="mainContact">
+                <a href="#"><img src="../img/fb.png" alt="聯絡資訊圖標"></a>
+                <a href="#"><img src="../img/twitter.png" alt="聯絡資訊圖標"></a>
+                <a href="#"><img src="../img/line.png" alt="聯絡資訊圖標"></a>
+            </div>
+        </div>
+        <div class="footer" id="footerId">
+            <img src="../img/kiborLogo.png" alt="logo" class="ftlogo">
+            <div class="contact"> 
+                <a href="mailto:qcc870712@gmail.com">
+                   <span><img src="../img/mailicon2.png" alt="mailicon">mail</span>
+                   <p>mail:qcc870712@gmail.com</p>
+                </a>
+                <p>本網站為學術及個人用途
+                    <br>Copyright © 2021 Holdkibor
+                </p>
+            </div>
+        </div>
+        <!-- 返回鍵 -->
+        <div class="icon">
+            <a href="#top"><img src="../img/up.png" alt="upicon"></a>
+        </div>
+    </div>
+    <!-- js -->
+    <script src="../js/child.js"></script>
+</body>
+</html>
+
+<!-- &lt/內容/&gt -->

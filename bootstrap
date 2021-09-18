@@ -1,0 +1,336 @@
+bootstrap
+
+
+簡單講解:
+其實bootstrap就類似JQuery，將CSS及JS整合起來，只須入calss即可，省略了冗長的程式碼。
+-----------
+環境載入:
+
+首先在使用框架前一定得先載入框架的環境，bootstrap也是一樣。
+bootstrap有二個需要載入的環境，分別是:
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+
+一個是其的CSS，另一個則是JS
+CSS置於head / js置於body尾端前
+//CSS檔案已經有CSSreset了，所以不需要再額外輸入。
+//其實原先在第四版需要搭配JQ，但第五代已經整合起來了。
+
+補充:當使用他人框架時可以使用網址(CDN)亦可放入本地端。
+差別在哪裡?
+
+CDN:
+好處.使用CDN時流量是算虛擬主機的，且載入速度快。
+缺點.但如果主機掛掉，那網站使用框架的內容亦會癱瘓。
+
+本地端:
+好處.流量算自己的，且網站不會隨著伺服器所癱瘓。
+缺點.是載入較CDN慢。因為CDN是尋找使用者最近的伺服器端，所以在連接資料時會快些。
+
+功能:
+----------
+
+字體堆疊:
+因為每個系統都不一樣，所以使用字體堆疊。
+
+字體會優先載入前方的字體，若無法載入則載入後方的備用字體。
+順位:
+1.系統預設字體
+2.指定字體
+3.備用字體
+
+----------
+標題class:
+分別為h1~h6的class，輸入即可使區塊的樣式與h1等標籤一至。
+
+
+----------
+
+字體大小:
+class:
+diplay-1/2/3/4
+分別由大到小
+
+
+----------
+
+欄與列:
+
+row列
+
+col-1~12欄 欄總共有12可以選擇，數字越大占比就越大
+
+假設今天要有一列三欄顯示的區塊的話:
+
+<div class="row">
+    <div class="col-3"></div>
+    <div class="col-3"></div>
+    <div class="col-3"></div>
+<div>
+
+rwd的欄與列 col還可以自適應:
+
+col-sm-6// >=576px就使版面佔據六
+col-md-3// >= 768px就使版面佔據3
+依此類推
+
+各自適應寬度為:
+
+原本col < 576
+
+sm >= 576px
+
+md >= 768px
+
+lg >=992px
+
+xl >=1200px
+
+以上稱為中斷點。中斷點除了使用在欄列外套用大部分bootstrap的功能。
+
+補充:可以省略掉數字，會系統會自動判斷區塊多少去平均分配。
+
+網址:
+https://getbootstrap.com/docs/5.1/layout/css-grid/#key-differences
+---------
+flex:
+
+bootstrap的flex與原先的相似，差在原先是css改成class而已。
+
+
+.d-size-flex = display:flex 
+
+.d-size-inline = display:inline
+
+.flex-row 等等的
+
+
+---------
+網頁寬度固定:
+
+bootstrap可以使寬度固定大小
+當寬度超過，就會使寬度固定為指定寬故
+container 為放在最外層的wrap
+
+container:
+
+>575px auto 隨螢幕寬度變化
+
+<576px 固定 540px
+
+<768px 固定 720px
+
+<992px 固定 960px
+
+<1200px 固定 1400px
+
+
+container-fluid:
+自適應不固定寬度
+
+---------
+magin及padding
+
+型態:類別及方向-rwd-大小
+範例:mt-sm-3
+
+類別:
+
+m = magin
+
+p = padding
+
+方向:
+
+t = top
+
+b = botton
+
+l = left
+
+r = right
+
+x = 水平方向(左右)
+
+y = 上下方下(上下)
+
+若沒有填寫則四個方向都生效
+
+
+大小:
+
+大小以rem為主 rem = 16px
+
+0 = 0
+
+1 = rem*0.25 // 4px
+
+2 = rem*0.5 // 8px
+
+3 = rem // 16px
+
+4 = rem*1.5 //24px
+
+5 = rwm* 3 //48px
+
+auto = 顧名思義就是自動，通常搭配flex使用
+
+---------
+Navbar 選單
+
+複製貼上即可。
+
+
+---------
+border 邊寬
+型態:border-顏色-方向-大小
+
+方向:
+top 上
+botton 下
+start 左
+right 右
+
+顏色:
+primary 藍
+secondary 深藍
+等等
+
+大小:
+
+1~5分別小到大
+
+圓角(Border-radius):
+.rounded 四方圓角
+.rounded-circle 圓形
+.rounded-pill 膠囊型
+
+詳細資訊:
+https://getbootstrap.com/docs/5.0/utilities/borders/
+---------
+顏色 color:
+
+background 背景:
+型態:bg-顏色
+
+網址:
+https://getbootstrap.com/docs/5.0/utilities/background/
+
+
+text 文字:
+型態:text-顏色
+
+網址:
+https://getbootstrap.com/docs/5.0/utilities/colors/
+
+
+---------
+close button 關閉按鈕
+就是個關閉的按鈕而已。
+
+---------
+display:
+型態:d-屬性
+
+各式屬性:
+none
+inline
+inline-block
+block
+grid
+table
+table-cell
+table-row
+flex
+inline-flex
+
+網址:
+https://getbootstrap.com/docs/5.0/utilities/display/
+---------
+崁入外部網址(內崁):
+
+型態:ratio ratio-比例
+
+範例:
+<div class="ratio ratio-16x9">
+  <iframe src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" title="YouTube video" allowfullscreen></iframe>
+</div>
+
+比例:
+
+1X1
+
+4X3
+
+16X19
+
+21X9
+
+網址:https://getbootstrap.com/docs/5.0/helpers/ratio/   
+
+---------
+float 浮動
+
+.float-start 左
+.float-end 右
+.float-none 無
+---------
+
+text 圖片內隱藏文字(方便搜尋引擎搜尋) 
+
+ <h1  style="background-image: url('http://lorempixel.com/400/200/food'); width: 400px; height: 200px;">
+
+    <a class="sr-only sr-only-focusable" href="#">bootstrap</a>
+
+ </h1>
+
+補充:
+
+sr-only 是將畫面隱藏 大概是
+opacity:0
+或
+visibility:hidden(保留區塊)
+display:none(連區塊也隱藏)
+---------
+position 定位
+
+fixed-top:定位於畫面上方
+
+fixed-bottom:定位於畫面下方
+
+sticky-top: 使區塊隨著介面移動，但當區塊到達頂端或尾端時，固定於畫面上。
+
+原生CSS就是position:sticky
+---------
+寬度及高度 sizing
+型態:類別-大小
+例子:w-25
+
+類別:
+w 寬度
+
+mw 最大寬度
+
+h高度
+
+mh最大高度
+
+---------
+
+media object
+
+型態:
+
+<div class="media">
+  <img src="..." class="mr-3" alt="...">
+  <div class="media-body">
+    <h5 class="mt-0">Media heading</h5>
+    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+  </div>
+</div>
+
+//但bootstrap 5 已經沒有使用
+
+
+
