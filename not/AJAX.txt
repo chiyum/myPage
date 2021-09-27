@@ -251,3 +251,73 @@ function login(e) {
   loginAccount.value = "";
   loginPassword.value = "";
 }
+
+
+----------
+
+promise:
+
+常用於AJAX及非同步處理。
+在JQ之中，AJAX有許多的連線方法。
+以下介紹其中幾個方法。
+
+
+方法一.
+let data = {}//先建立空物件路徑，之後套入AJAX
+$.ajax({
+    url:網址路徑
+}).done(function(res/回傳後套入參數){
+   data = res.results
+   console.log(data)//顯示回傳內容的results
+})
+
+補充，以下方範例做說明:
+
+let data = {}
+$.ajax({
+    url:網址路徑
+}).done(function(res){
+   console.log(res)//顯示results內容
+   data = res.results
+})
+
+console.log(data)//顯示空物件
+
+之所以這個原因是因為，非同步會等程式碼執行完成後才執行，
+所以一定會等所有程式碼跑完才跑AJAX，不管AJAX傳輸速度多快。
+
+方法二.
+$.ajax({
+    url:網址路徑
+    datatype:'json'
+    success:function(data){
+        console.log(data)
+    }
+})
+
+success的用意是，當完成回傳後執行success的程式碼
+
+方法三.$ajax({
+    url:路徑,
+    method:請求方式(get/post...),
+    datatype:請求資料類型,
+    data:(如需傳送資料，資料設定於此。沒有則不需要此屬性)
+    success:function(res){
+        console.log(res)//回傳成功執行
+    },
+
+    error:function(err){
+        console.log(err)//回傳失敗執行
+    }
+})
+
+但是以上有幾個非同步的問題。
+1.回呼地獄
+//當若要再次執行，就得再把同樣的程式碼套入原先的程式碼中，也就是巢狀。
+
+2.寫法不一致
+
+3.無法同時執行(雖然JQ有寫法，但並不直覺)
+//都會等到程式碼執行完成後才接續執行，無法指定特定時間。
+
+所以為了避開以上及直覺得使用，那我們就得使用promise。

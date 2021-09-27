@@ -51,6 +51,8 @@ fnA()
 
 前面我們有說過，物件都有自己的參考路徑，而function身為物件，自然也有自己的參考路徑。
 所以表達式就是將函式的路徑賦予給予變數
+補充:但是無法將已經完成的function路徑賦予給變數
+照上面範例就是:var fnD = fnA(); 
 
 fnB()
 
@@ -232,7 +234,7 @@ function fnA(fn){
     fn('小明')
 }
 
-functionA(callName)//此時這裡不須代參數
+fnA(callName)//此時這裡不須代參數
 //顯示小明
 
 /////以上稱為callbackfunction
@@ -262,3 +264,175 @@ function callName(a){
 從以上可以看出來of的key是value，in的key是每個value的號碼
 
 之所以說arguments是類陣列是因為，它沒有陣列該有的包裹物件，如forEach等。
+
+
+----------
+
+closure 閉包:
+
+範例.
+function storeMoney(){
+    var money = 1000
+    return function(price){
+        money = money + price
+        return money
+    }
+}
+
+console.log(storeMoney())//這樣是執行var money = 1000的內容，並回傳子function的內容。
+console.log(storeMoney()(1000))//執行原function外也執行子function，所以回傳2000
+
+
+var mingMoney = storeMoney()
+console.log(mingMoney(100))//顯示1100
+console.log(mingMoney(100))//顯示1200
+console.log(mingMoney(100))//顯示1300
+
+var jayMoney = storeMoney()
+console.log(jayMoney(1000))//顯示1000
+console.log(jayMoney(1000))//顯示2000
+console.log(jayMoney(1000))//顯示3000
+
+以上稱為閉包。原理就是因為子function需要向父層抓取資料，因此資料的記憶體就不會被釋放掉。
+另外前面有說過function無法透過此方式賦予function的路徑給予變數。
+確實如此，因為function回傳(return)的是money這個變數及子function，
+也就是說賦予給變數money的value(1000)，以及子function。
+//這個1000並非是上面宣告的var給予的，而是子function所占用的。
+綜合上述加上子層會抓取父層變數且不釋放，
+所以數字才能不斷累加並且mingMoeny才能成為一個function
+
+補充:以上jayMoney = storeMoney()的用法，
+是將storeMoney所運算完成的結果回傳給jayMoney這個變數，並不是回傳function路徑。
+
+
+---------
+閉包進階:
+
+照慣例先上個範例:
+
+function arrfn(){
+    let arr =[]
+    for(var i =0;i<3;i++){//若這裡的var改成let就沒有問題，因為let的作用範圍至在for回圈內 
+        arr.push(function(){
+            console.log(i)
+        })
+    }
+    console.log(arr)//顯示三段函是
+    return arr
+}
+
+let fn = arrfn()
+
+fm[0]();//顯示3
+fm[1]();//顯示3
+fm[2]();//顯示3
+
+為甚麼都會顯示3呢?
+因為前面有說到，當子層function抓取父層變數資料時，那記憶體資料就不會釋放，
+所以i就會一直是3
+
+而若是不想要i取得的都是最後一個3，使用立即函式限制作用域即可:
+概念就是利用作用域來阻斷變數的傳遞。
+function arrfn(){
+    let arr =[]
+    for(var i =0;i<3;i++){
+            (function(j){
+                arr.push(function(){
+                console.log(i)
+            }(i))
+        })
+    }
+    console.log(arr)
+    return arr
+}
+
+let fn = arrfn()
+
+fm[0]();//顯示0
+fm[1]();//顯示1
+fm[2]();//顯示2
+
+
+或者是使用let
+
+
+function arrfn(){
+    let arr =[]
+    for(let i =0;i<3;i++){//若這裡的var改成let就沒有問題，因為let的作用範圍至在for回圈內 
+        arr.push(function(){
+            console.log(i)
+        })
+    }
+    console.log(arr)
+    console.log(i)//這邊是沒辦法取到i的，因為上面所述，i只限定於for的{}內
+    return arr
+}
+
+let fn = arrfn()
+
+fm[0]();//顯示0
+fm[1]();//顯示1
+fm[2]();//顯示2
+
+
+函式工廠:
+上面所提的，可以再加入參數修正，同時閉包概念被稱為函式工廠。
+
+function storeMoney(num){
+    var money = num || 1000 //在運算子的章節有提到,當||前方為真值時回傳num，若非真值直接回傳1000
+    return function(price){
+        money = money + price
+        return money
+
+    }
+}
+
+
+私有方法:
+在上面的概念下，分解成不同的方法，例如原先的數字增加，新增數字查詢及減。
+
+function storeMoney(num){
+    var money = num || 1000 
+    return { //回傳一個物件，接著再以所需抓取欲使用的屬性變數
+        increase:function(price){
+            money += price //不覆蓋掉原先的moeny將price的value與money的value做相加 
+        },
+        decrease:function(price){
+            money-= pirce //不覆蓋掉原先的moeny將price的value與money的value做相減 
+        },
+        value:function(){
+            return money
+        }
+    }
+}
+
+var mingMoney = storeMoney(100)//這邊是將100賦予給小明
+
+mingMoney.increase(100)//這邊是增加小明的moeny
+
+console.log(mingMoney.value())//這邊是查詢小明的money
+//這邊之所以用console.log是因為回傳回來的money被沒有變數可以呈現，
+所以使用console.log才可以看到回傳回來的money
+
+補充map的功能:(在六角學院JS核心篇的function常見陷阱)
+型態:陣列.map()
+用法有些類似foreach，差別在於會將陣列內的物件計算後回傳到陣列上
+範例一.
+var a = [1,2,3].map(function(iteam){
+    console.log(iteam)//顯示1,2,3，所以在這裡操作的值會套用到a的陣列上
+})
+
+範例二.
+var a = [1,2,3].map(function(iteam){
+    return 'a'+iteam //如此a陣列內的物件就會是a1,a2,a3
+})
+
+
+範例三.
+var a = ['1','2','3'].map(function(iteam){
+    return parseInt(iteam,10)//如此就會將陣列內的字串改為數字。
+})
+
+補充parseInt('字串',進位)
+parseInt的目的是將字串轉為數字，而默認是使用10進位，
+但怕有些瀏覽器不支持，所以可以在後方指定進位
